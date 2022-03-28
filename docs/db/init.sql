@@ -1,4 +1,3 @@
-CREATE DATABASE apiunialfa DEFAULT CHARSET 'utf8' DEFAULT COLLATE 'utf8_bin';
 USE apiunialfa;
 
 CREATE TABLE categoria (
