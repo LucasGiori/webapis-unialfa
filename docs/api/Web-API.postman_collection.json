@@ -1,0 +1,1289 @@
+{
+	"info": {
+		"_postman_id": "e900c090-cee4-461f-b398-b5b946dc6d30",
+		"name": "Web-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "Nova Categoria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Categoria {{$randomInt}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/categorias",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"categorias"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Categoria criada com sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Categoria {{$randomInt}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/categorias",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categorias"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\": \"Categoria {{$randomInt}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/categorias",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categorias"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "INternal Server Error"
+						}
+					]
+				},
+				{
+					"name": "Buscar Categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/categorias?id=2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"categorias"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Categoria por id especifico",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/categorias?id=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categorias"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"2\",\n        \"nome\": \"Categoria 567\"\n    }\n]"
+						},
+						{
+							"name": "Lista de todas as categorias",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/categorias",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categorias"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"6\",\n        \"nome\": \"Categoria 245\"\n    },\n    {\n        \"id\": \"4\",\n        \"nome\": \"Categoria 266\"\n    },\n    {\n        \"id\": \"3\",\n        \"nome\": \"Categoria 53\"\n    },\n    {\n        \"id\": \"5\",\n        \"nome\": \"Categoria 534\"\n    },\n    {\n        \"id\": \"2\",\n        \"nome\": \"Categoria 567\"\n    }\n]"
+						},
+						{
+							"name": "Sem resultados para os filtros aplicados ou sem registro na base",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/categorias",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categorias"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\"message\": \"Sem registro de categorias para esse filtro!\"}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/categorias?id=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categorias"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "INternal Server Error"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Categoria",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\":\"Categori 77\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/categoria/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"categoria",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Identificador de categoria inválido",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\":\"Categori 77\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/categoria/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categoria",
+										"1"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\"message\": \"Identificador da categoria inválido\"}"
+						},
+						{
+							"name": "Categoria atualizada com sucesso",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\":\"Categori 77\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/categoria/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categoria",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"nome\":\"Categori 77\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/categoria/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categoria",
+										"1"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "Internal server error"
+						}
+					]
+				},
+				{
+					"name": "Excluir Categoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/categorias/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"categorias",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Identificador da categoria inválido",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/categorias/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categorias",
+										"1"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\"message\": \"Identificador da categoria inválido\"}"
+						},
+						{
+							"name": "Nenhuma categoria com identificador informado",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/categorias/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categorias",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\"message\": \"Não existe nenhuma categoria com este identificador para excluir\"}"
+						},
+						{
+							"name": "Categoria excluida com sucesso",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/categorias/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"categorias",
+										"1"
+									]
+								}
+							},
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Novo Produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoria_id\": 2,\n    \"nome\": \"Galaxy\",\n    \"preco\": 10.24\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/produtos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"produtos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Categoria do produto é Inválido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoria_id\": 2,\n    \"nome\": \"Galaxy\",\n    \"preco\": 10.24\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos"
+									]
+								}
+							},
+							"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+							"code": 422,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\"message\":\"Não existe nenhuma categoria com o identificador informado\"}"
+						},
+						{
+							"name": "internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoria_id\": 2,\n    \"nome\": \"Galaxy\",\n    \"preco\": 10.24\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\"message\":\"Erro ao executar query. Detalhes: [HY200] - mysql\"}"
+						},
+						{
+							"name": "Produto cadastrado com sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoria_id\": 2,\n    \"nome\": \"Galaxy\",\n    \"preco\": 10.24\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Buscar Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/produtos?id=6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"produtos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sem registro de produtos para o filtro ou sem registro na base de dados",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos?id=6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Produto por identificador especifico",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos?id=6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"6\",\n        \"categoria_id\": \"2\",\n        \"nome\": \"IPhone\",\n        \"preco\": \"10.24\"\n    }\n]"
+						},
+						{
+							"name": "Lista todos os produtos cadastrados",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos?id=6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"6\",\n        \"categoria_id\": \"2\",\n        \"nome\": \"IPhone\",\n        \"preco\": \"10.24\"\n    },\n    {\n        \"id\": \"7\",\n        \"categoria_id\": \"2\",\n        \"nome\": \"Galaxy\",\n        \"preco\": \"1000\"\n    }\n]\n]"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Produto",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoria_id\": \"2\",\n    \"nome\": \"IPhone 10\",\n    \"preco\": \"10.24\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/produtos/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"produtos",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Identificador do produto inválido",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoria_id\": \"2\",\n    \"nome\": \"IPhone 10\",\n    \"preco\": \"10.24\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Produto atualizado com sucesso",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoria_id\": \"2\",\n    \"nome\": \"IPhone 10\",\n    \"preco\": \"10.24\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos",
+										"2"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"categoria_id\": \"2\",\n    \"nome\": \"IPhone 10\",\n    \"preco\": \"10.24\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos",
+										"2"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "Internal Server Error"
+						}
+					]
+				},
+				{
+					"name": "Excluir Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/produtos/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"produtos",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Não existe produto com identificador informado",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\"message\": \"Não existe nenhum produto com este identificador para excluir\"}"
+						},
+						{
+							"name": "Produto excluido com sucesso",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos",
+										"2"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "internal Server Error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/produtos/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"produtos",
+										"2"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "Internal Server Error"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Acesso",
+			"item": [
+				{
+					"name": "Novo Acesso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\":\"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/acesso",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"acesso"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Acesso cadastrado com sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\":\"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/acesso",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"acesso"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\":\"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/acesso",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"acesso"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "Internal Server Error"
+						}
+					]
+				},
+				{
+					"name": "Busca Acessos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/v1/acesso",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"acesso"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Lista de Acesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/acesso",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"acesso"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"token\":\"1234\"\n}"
+						},
+						{
+							"name": "Sem resultados de acessos cadastrado na base de dados",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/v1/acesso",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"acesso"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Acesso",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-id",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/acesso",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"acesso"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualizar Acesso",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "x-id",
+										"value": "2",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/acesso",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"acesso"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "x-id",
+										"value": "2",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/acesso",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"acesso"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "Internal Server Error"
+						}
+					]
+				},
+				{
+					"name": "Excluir Acesso",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-id",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/acesso",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"acesso"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Acesso excluído com sucesso",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-id",
+										"value": "2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/acesso?x-id=2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"acesso"
+									],
+									"query": [
+										{
+											"key": "x-id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "x-id",
+										"value": "2",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/v1/acesso",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"acesso"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "Internal Server Error"
+						}
+					]
+				}
+			]
+		}
+	]
+}
